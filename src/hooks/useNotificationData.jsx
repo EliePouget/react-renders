@@ -7,9 +7,9 @@ function useNotificationData() {
     setLastNoficationId(lastNoficationId + 1);
     setNotificationsData([{
       id: lastNoficationId,
-      title: `Notifiaction ${(String.fromCharCode(lastNoficationId))}`,
+      title: `Notifiaction ${lastNoficationId}`,
       content: 'content',
-    }, notificationsData]);
+    }].concat(notificationsData));
   }
   return {
     addNotification,
