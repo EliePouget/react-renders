@@ -2,6 +2,7 @@ import React from 'react';
 import Cards from './components/Cards';
 import cardsData from './constants/cardsData';
 import useNotificationData from './hooks/useNotificationData';
+import NotificationCenter from "./components/NotificationCenter.jsx";
 
 function App() {
   const notif = useNotificationData();
@@ -16,6 +17,7 @@ function App() {
         <Cards className="cards" cardsData={cardsData} />
       </main>
       <footer className="app__footer footer">
+        <NotificationCenter notificationData={notif.notificationsData}/>
         {`${notif.notificationsData.length} notification${(notif.notificationsData.length > 0) ? 's' : ''}`}
       </footer>
     </div>

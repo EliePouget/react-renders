@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FoldableCard from './FoldableCard.jsx';
-import Card from './Card.jsx';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { fas } from '@fortawesome/free-solid-svg-icons';
+import Card from './Card';
 
 function Notification({
   data, children, ...props
@@ -10,7 +11,7 @@ function Notification({
   const titleIcon = (
     <>
       { data.title }
-      <FontAwesomeIcon className="foldable-icon" icon='<FontAwesomeIcon icon="fa-solid fa-circle-xmark" />' />
+      <FontAwesomeIcon className="foldable-icon" icon="fa-solid fa-circle-xmark" />
     </>
   );
   return (
