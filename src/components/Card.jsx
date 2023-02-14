@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import FoldableCard from './FoldableCard.jsx';
 
 function Card({
   onClick, title, className, children, ...props

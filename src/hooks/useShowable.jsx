@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 function useShowable(shown, baseClassName = '') {
   const [isShown, setIsShown] = useState(shown);
