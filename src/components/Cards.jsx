@@ -33,7 +33,7 @@ Cards.defaultProps = {
 };
 Cards.propTypes = {
   className: PropTypes.node,
-  cardsData: PropTypes.arrayOf + PropTypes.shape,
+  cardsData: PropTypes.array,
 };
 
 export default Cards;

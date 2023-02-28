@@ -13,11 +13,12 @@ function useNotificationData() {
     }].concat(notificationsData));
   }
   function deleteNotification(id) {
-    setNotificationsData(notificationsData.filter(notificationsData.id = id));
+    setNotificationsData(notificationsData.filter((elt) => elt.id !== id));
   }
   return {
     addNotification,
     notificationsData,
+    deleteNotification,
   };
 }
 

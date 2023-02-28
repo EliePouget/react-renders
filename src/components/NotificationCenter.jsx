@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Notification from "./Notification.jsx";
+import Notification from './Notification.jsx';
 
 function NotificationCenter({
-  notificationData, ...props
+  notificationData, onDelete, ...props
 }) {
   return (
     <>
@@ -13,6 +13,7 @@ function NotificationCenter({
       <div className="notifications">
         {notificationData.map((obj) => (
           <Notification
+            onDelete={onDelete}
             key={obj.id}
             data={obj}
           >
@@ -25,7 +26,9 @@ function NotificationCenter({
 }
 
 NotificationCenter.propTypes = {
-  notificationData: PropTypes.arrayOf.isRequired,
+    // eslint-disable-next-line react/forbid-prop-types
+  notificationData: PropTypes.array.isRequired,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default NotificationCenter;

@@ -4,30 +4,33 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import Card from './Card';
-import useRendersNumber from "../hooks/useRendersnumber.jsx";
+import useRendersNumber from '../hooks/useRendersnumber.jsx';
 
 function Notification({
-  data, children, ...props
+  data, children, onDelete, ...props
 }) {
   const titleIcon = (
     <>
-      [{useRendersNumber()}]
+      [
+      {useRendersNumber()}
+      ]
       { data.title }
       <FontAwesomeIcon className="foldable-icon" icon="fa-solid fa-circle-xmark" />
     </>
   );
   return (
-    <Card className="notificcation" title={titleIcon}>{data.content}</Card>
+    <Card onClick={() => { onDelete(data.id); }} className="notification" title={titleIcon}>{data.content}</Card>
   );
 }
 Notification.defaultProps = {
   data: {},
   children: 'Content',
-
 };
 Notification.propTypes = {
   children: PropTypes.node,
-  data: PropTypes.arrayOf,
+    // eslint-disable-next-line react/forbid-prop-types
+  data: PropTypes.object,
+  onDelete: PropTypes.func.isRequired,
 };
 
 export default Notification;
