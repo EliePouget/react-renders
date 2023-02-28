@@ -4,12 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fas } from '@fortawesome/free-solid-svg-icons';
 import Card from './Card';
+import useRendersNumber from "../hooks/useRendersnumber.jsx";
 
 function Notification({
   data, children, ...props
 }) {
   const titleIcon = (
     <>
+      [{useRendersNumber()}]
       { data.title }
       <FontAwesomeIcon className="foldable-icon" icon="fa-solid fa-circle-xmark" />
     </>
