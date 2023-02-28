@@ -13,6 +13,7 @@ function NotificationCenter({
       <div className="notifications">
         {notificationData.map((obj) => (
           <Notification
+            key={obj.id}
             data={obj}
           >
             {obj.content}
