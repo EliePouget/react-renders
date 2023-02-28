@@ -7,7 +7,7 @@ import useRendersNumber from './hooks/useRendersnumber.jsx';
 
 function App() {
   const notif = useNotificationData();
-
+    const showable = useNotificationData();
   return (
     <div className="app">
       <header className="app__header header">

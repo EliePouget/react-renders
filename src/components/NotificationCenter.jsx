@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Notification from './Notification.jsx';
 import useShowable from '../hooks/useShowable.jsx';
@@ -10,6 +10,9 @@ function NotificationCenter({
 }) {
   const showable = useShowable(true);
   const notif = useNotificationData();
+  useEffect(() => {
+    showable.setIsShown(true);
+  }, [notificationData]);
   return (
     <>
       <button onClick={() => showable.toggleShown()} className="notifiactions-center">
