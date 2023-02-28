@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
-import Notification from './Notification.jsx';
-import useShowable from '../hooks/useShowable.jsx';
-import useRendersNumber from '../hooks/useRendersnumber.jsx';
-import useNotificationData from '../hooks/useNotificationData.jsx';
+import Notification from './Notification';
+import useShowable from '../hooks/useShowable';
+import useRendersNumber from '../hooks/useRendersnumber';
+import useNotificationData from '../hooks/useNotificationData';
 
 function NotificationCenter({
   notificationData, onDelete, ...props
@@ -16,7 +16,7 @@ function NotificationCenter({
   return (
     <>
       <button onClick={() => showable.toggleShown()} className="notifiactions-center">
-        {`[${useRendersNumber()}] ${notif.notificationsData.length} notification${(notif.notificationsData.length > 0) ? 's' : ''} ${showable.isShown ? '(show)' : '(hide)'}`}
+        {`[${useRendersNumber()}] ${notif.lastNoficationId} notification${(notif.notificationsData.length > 0) ? 's' : ''} ${showable.isShown ? '(show)' : '(hide)'}`}
       </button>
       {showable.isShown ? (
         <div className="notifications">

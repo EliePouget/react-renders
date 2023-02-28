@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import PropTypes, { node } from 'prop-types';
 import FoldableCard from './FoldableCard';
 import useShowable from '../hooks/useShowable';
@@ -6,11 +6,14 @@ import useShowable from '../hooks/useShowable';
 function Cards({
   className, cardsData, ...props
 }) {
+  const [fodableCards, setFodableCards] = useState([]);
   const [openedIndex, setOpenedIndex] = useState(null);
-  console.log(openedIndex);
+  useEffect(() => {
+    setFodableCards(cardsData);
+  }, [cardsData, openedIndex]);
   return (
     <div className={className}>
-      {cardsData.map((obj, indice) => (
+      {fodableCards.map((obj, indice) => (
         <FoldableCard
           key={obj.id}
           title={obj.title}

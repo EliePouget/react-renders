@@ -19,6 +19,7 @@ function useNotificationData() {
     addNotification,
     notificationsData,
     deleteNotification,
+    lastNoficationId,
   };
 }
 
