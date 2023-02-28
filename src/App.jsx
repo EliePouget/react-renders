@@ -27,7 +27,6 @@ function App() {
           notificationData={notif.notificationsData}
           onDelete={notif.deleteNotification}
         />
-        {`[${useRendersNumber()}] ${notif.notificationsData.length} notification${(notif.notificationsData.length > 0) ? 's' : ''}`}
       </footer>
     </div>
   );
