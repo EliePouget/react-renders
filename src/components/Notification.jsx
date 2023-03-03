@@ -11,9 +11,6 @@ function Notification({
 }) {
   const titleIcon = (
     <>
-      [
-      {useRendersNumber()}
-      ]
       { data.title }
       <FontAwesomeIcon className="foldable-icon" icon="fa-solid fa-circle-xmark" />
     </>
@@ -28,7 +25,7 @@ Notification.defaultProps = {
 };
 Notification.propTypes = {
   children: PropTypes.node,
-    // eslint-disable-next-line react/forbid-prop-types
+  // eslint-disable-next-line react/forbid-prop-types
   data: PropTypes.object,
   onDelete: PropTypes.func.isRequired,
 };

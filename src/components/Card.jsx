@@ -1,12 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import useRendersNumber from '../hooks/useRendersnumber.jsx';
 
 function Card({
   onClick, title, className, children, ...props
 }) {
   return (
     <button onClick={onClick} className={`card ${className}`}>
-      <header className="card__header header__title">{title}</header>
+      <header className="card__header header__title">
+        [
+        {useRendersNumber()}
+        ]
+        {' '}
+        {title}
+      </header>
       <section className="card__main">{children}</section>
     </button>
   );

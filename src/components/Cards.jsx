@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes, { node } from 'prop-types';
 import FoldableCard from './FoldableCard';
-import useShowable from '../hooks/useShowable';
 
 function Cards({
   className, cardsData, ...props

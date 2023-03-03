@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useEffect } from 'react';
 import Card from './Card';
 import useShowable from '../hooks/useShowable';
-import useRendersNumber from '../hooks/useRendersnumber.jsx';
+import useRendersNumber from '../hooks/useRendersnumber';
 
 library.add(fas);
 
@@ -18,9 +18,6 @@ function FoldableCard({
   }, [opened]);
   const titleIcon = (
     <>
-      [
-      {useRendersNumber()}
-      ]
       { title }
       <FontAwesomeIcon className="foldable-icon" icon={`fa-solid ${showable.isShown ? 'fa-circle-minus' : 'fa-circle-plus'}`} />
     </>

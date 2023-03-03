@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Notification from './Notification';
 import useShowable from '../hooks/useShowable';
@@ -9,18 +9,22 @@ function NotificationCenter({
   notificationData, onDelete, ...props
 }) {
   const showable = useShowable(true);
-  const notif = useNotificationData();
+  const [isNotifcation, setNotification] = useState([]);
+  const notifData = useNotificationData();
+  useEffect(() => {
+    setNotification(notificationData);
+  }, [notificationData, onDelete]);
   useEffect(() => {
     showable.setIsShown(true);
   }, [notificationData]);
   return (
     <>
       <button onClick={() => showable.toggleShown()} className="notifiactions-center">
-        {`[${useRendersNumber()}] ${notif.lastNoficationId} notification${(notif.notificationsData.length > 0) ? 's' : ''} ${showable.isShown ? '(show)' : '(hide)'}`}
+        {`[${useRendersNumber()}] ${notifData.lastNoficationId} notification${(notifData.notificationsData.length > 0) ? 's' : ''} ${showable.isShown ? '(show)' : '(hide)'}`}
       </button>
       {showable.isShown ? (
         <div className="notifications">
-          {notificationData.map((obj) => (
+          {isNotifcation.map((obj) => (
             <Notification
               onDelete={onDelete}
               key={obj.id}
