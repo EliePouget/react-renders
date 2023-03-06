@@ -5,27 +5,25 @@ import FoldableCard from './FoldableCard';
 function Cards({
   className, cardsData, ...props
 }) {
-  const [fodableCards, setFodableCards] = useState([]);
   const [openedIndex, setOpenedIndex] = useState(null);
+  const [foldableCards, setFoldableCards] = useState([]);
+
   useEffect(() => {
-    setFodableCards(cardsData);
+    setFoldableCards(cardsData.map((card) => (
+      <FoldableCard
+        key={card.id}
+        title={card.title}
+        opened={false}
+        onToggleOpened={() => {}}
+      >
+        {card.content}
+      </FoldableCard>
+    )));
   }, [cardsData, openedIndex]);
+
   return (
     <div className={className}>
-      {fodableCards.map((obj, indice) => (
-        <FoldableCard
-          key={obj.id}
-          title={obj.title}
-          opened={indice === openedIndex}
-          onToggleOpened={(isShown) => {
-            if (isShown) {
-              setOpenedIndex(indice);
-            }
-          }}
-        >
-          {obj.content}
-        </FoldableCard>
-      ))}
+      {foldableCards}
     </div>
   );
 }
