@@ -11,12 +11,22 @@ function NotificationCenter({
   const showable = useShowable(true);
   const [isNotifcation, setNotification] = useState([]);
   const notifData = useNotificationData();
+
   useEffect(() => {
-    setNotification(notificationData);
-  }, [notificationData, onDelete]);
+    setNotification(notificationData.map((notif) => (
+      <Notification
+        onDelete={onDelete}
+        key={notif.id}
+        data={notif}
+      >
+        {notif.content}
+      </Notification>
+    )));
+  }, [notificationData]);
   useEffect(() => {
     showable.setIsShown(true);
   }, [notificationData]);
+
   return (
     <>
       <button onClick={() => showable.toggleShown()} className="notifiactions-center">
@@ -24,15 +34,7 @@ function NotificationCenter({
       </button>
       {showable.isShown ? (
         <div className="notifications">
-          {isNotifcation.map((obj) => (
-            <Notification
-              onDelete={onDelete}
-              key={obj.id}
-              data={obj}
-            >
-              {obj.content}
-            </Notification>
-          ))}
+          {isNotifcation}
         </div>
       ) : <></>}
     </>
